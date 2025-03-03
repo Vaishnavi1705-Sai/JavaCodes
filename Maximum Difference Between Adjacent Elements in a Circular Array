@@ -1,0 +1,27 @@
+Maximum Difference Between Adjacent Elements in a Circular Array.
+JAVA Solution:
+class Solution {
+    public static int maxAdjacentDistance(int[] nums) {
+        int n= nums.length;
+        if(n<2){
+            return 0;
+        }
+        int maxDiff= Math.abs(nums[n-1]-nums[0]);
+        for(int i=n-1;i>0;i--){
+            int diff = nums[i] - nums[i-1];
+            maxDiff = Math.max(maxDiff, Math.abs(diff));
+        }
+        return maxDiff;   
+    }
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        int n= sc.nextInt();
+        int[] nums= new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=sc.nextInt();
+        }
+        System.out.println(maxAdjacentDistance(nums));
+    }
+}
+
+NOTE: This is just a beginner friendly code. NOT THE FULLY OPTIMIZED CODE.
