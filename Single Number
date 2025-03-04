@@ -1,0 +1,33 @@
+Single Number.
+Solution:
+class Solution {
+    public static int singleNumber(int[] nums) {
+        int n= nums.length;
+        int count=1;
+        if(n==1){
+            return nums[0];
+        }
+        for(int i=0;i<n;i++){
+            count=1;
+            for(int j=0;j<n;j++){
+                if(i!=j && nums[i]==nums[j]){
+                    count++;
+                }
+            }
+            if(count==1){
+                return nums[i];
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] nums=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=sc.nextInt();
+        }
+        System.out.println(singleNumber(nums));
+    }
+}
+NOTE: THIS IS JUST A BEGINNER APPROACH. NOT AN OPTIMIZED SOLUTION.
